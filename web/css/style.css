@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+body {
+	background-color: #FFFFFF;
+	color: #333;
+	font-family: Cambria, "Trebuchet MS", Helvetica, Arial;
+	line-height: 150%;
+	margin: 0px;
+	width: 100%;
+	font-size: 1em;
+}
+#d1,
+#d2,
+#d3 {
+	cursor: pointer;
+}
+
+#d1:hover,
+#d2:hover,
+#d3:hover {
+
+	font-weight: bold;
+}

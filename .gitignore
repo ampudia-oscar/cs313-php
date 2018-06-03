@@ -1,0 +1,7 @@
+/nbproject/**
+/web/assignments/teach05/nbproject/**
+/web/assignments/ta5/**
+/web/assignments/project/Data.fmp12
+/web/assignments/project/database/**
+/web/assignments/project/model/database_local.php
+.env
