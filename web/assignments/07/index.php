@@ -24,7 +24,7 @@ if (!isset($_SESSION['valid_user'])) {
         header('Location: home.php');
         die();
     } elseif (isset($username) || isset($password)) {
-        $message = '<span style='color:red'>Invalid username or password</span>';
+        $message = "<span style='color:red'>Invalid username or password</span>";
         include('login.php');
     } else {
         $message = 'You must login to continue.';
