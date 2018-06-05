@@ -12,7 +12,7 @@ CREATE SCHEMA project;
 CREATE TABLE project.user (
   id SERIAL,
   username VARCHAR(45) NOT NULL,
-  password VARCHAR(45) NOT NULL,
+  password VARCHAR(60) NOT NULL,
   PRIMARY KEY (id)
   );
 

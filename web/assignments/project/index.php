@@ -4,8 +4,8 @@ session_start();
 //session_unset();
 //session_destroy();
 
-//require_once('model/database_local.php');
-require_once('model/database.php');
+require_once('model/database_local.php');
+//require_once('model/database.php');
 require_once('model/functions.php');
 
 

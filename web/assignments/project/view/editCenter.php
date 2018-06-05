@@ -1,6 +1,6 @@
 <?php
 session_start();
-//require ('../model/database_local.php');
+//require ('../model/dbconnect.php');
 require ('../model/database.php');
 require ('../model/functions.php');
 
