@@ -16,6 +16,7 @@
             <li><a href="ecommerce/">PHP Shopping Cart</a></li>
             <li><a href="teach05/" target="blank">TEAM: Scripture Resources</a></li>
             <li><a href="teach06/" target="blank">TEAM: Scripture Topics</a></li>
+            <li><a href="07/" target="blank">TEAM: Sign In / Sign Up</a></li>
             <li><a href="project/" target="blank">Project</a></li>
         </ul>
 	<?php include $_SERVER['DOCUMENT_ROOT'] . '/modules/footer.php'; ?>
