@@ -1,12 +1,14 @@
 <?php
 session_start();
-//require ('../model/dbconnect.php');
-require ('../model/database.php');
-require ('../model/functions.php');
 
 if (!isset($_SESSION['valid_user'])) {
     $action = 'login';
+    header('Location:../index.php');
+    exit;
 }
+
+require ('../model/database.php');
+require ('../model/functions.php');
 
 if (isset($_GET['idSchool'])) {
     $idSchool = $_GET['idSchool'];

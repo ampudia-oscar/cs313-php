@@ -4,7 +4,6 @@ session_start();
 //session_unset();
 //session_destroy();
 
-//require_once('model/database_local.php');
 require_once('model/database.php');
 require_once('model/functions.php');
 
@@ -33,12 +32,11 @@ switch ($action) {
             $_SESSION['id'] = userID($_SESSION['username']);
             $content = 'view/menu.php';
 
-            //INFO
-//            $info = '<p>$_SESSION["id"]: ' . $_SESSION['id'] . '</p>';
-//            $info .= '<p>$_SESSION["username"]: ' . $_SESSION['username'] . '</p>';
-
             $schools = getSchools();
             include 'home.php';
+        } elseif (isset($username) || isset($password)) {
+            $message = '<span style="color:red">Username or Password incorrect.</span>';
+            include('view/login.php');
         } else {
             $message = 'You must login to continue.';
             include('view/login.php');

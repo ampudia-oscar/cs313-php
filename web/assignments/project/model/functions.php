@@ -27,7 +27,7 @@ function userID($username) {
               ';
     try {
         $statement = $db->prepare($query);
-        $statement->bindValue('username', $username);
+        $statement->bindValue(':username', $username);
         $statement->execute();
         $result = $statement->fetch();
         $statement->closeCursor();
@@ -60,7 +60,7 @@ function getSchool($idSchool) {
               WHERE id = :idSchool';
     try {
         $statement = $db->prepare($query);
-        $statement->bindValue('idSchool', $idSchool);
+        $statement->bindValue(':idSchool', $idSchool);
         $statement->execute();
         $result = $statement->fetch();
         $statement->closeCursor();
@@ -76,9 +76,9 @@ function addSchool($school, $email, $website) {
               VALUES (:school, :email, :website)';
     try {
         $statement = $db->prepare($query);
-        $statement->bindValue('school', $school);
-        $statement->bindValue('email', $email);
-        $statement->bindValue('website', $website);
+        $statement->bindValue(':school', $school);
+        $statement->bindValue(':email', $email);
+        $statement->bindValue(':website', $website);
         $statement->execute();
     } catch (PDOException $e) {
         echo 'Error: ' . $e->getMessage();
@@ -92,10 +92,10 @@ function editSchool($idSchool, $school, $email, $website) {
               WHERE id=:idSchool';
     try {
         $statement = $db->prepare($query);
-        $statement->bindValue('idSchool', $idSchool);
-        $statement->bindValue('school', $school);
-        $statement->bindValue('email', $email);
-        $statement->bindValue('website', $website);
+        $statement->bindValue(':idSchool', $idSchool);
+        $statement->bindValue(':school', $school);
+        $statement->bindValue(':email', $email);
+        $statement->bindValue(':website', $website);
         $statement->execute();
     } catch (PDOException $e) {
         echo 'Error: ' . $e->getMessage();
@@ -111,7 +111,7 @@ function getCenters($idSchool) {
               ORDER BY country ASC';
     try {
         $statement = $db->prepare($query);
-        $statement->bindValue('idSchool', $idSchool);
+        $statement->bindValue(':idSchool', $idSchool);
         $statement->execute();
         $result = $statement->fetchAll();
         $statement->closeCursor();
@@ -128,7 +128,7 @@ function getCenter($idCenter) {
               WHERE id = :idCenter';
     try {
         $statement = $db->prepare($query);
-        $statement->bindValue('idCenter', $idCenter);
+        $statement->bindValue(':idCenter', $idCenter);
         $statement->execute();
         $result = $statement->fetch();
         $statement->closeCursor();
@@ -144,13 +144,13 @@ function addCenter($center, $address, $email, $phone, $city, $country, $school_i
               VALUES (:center, :address, :email, :phone, :city, :country, :school_id)';
     try {
         $statement = $db->prepare($query);
-        $statement->bindValue('center', $center);
-        $statement->bindValue('address', $address);
-        $statement->bindValue('email', $email);
-        $statement->bindValue('phone', $phone);
-        $statement->bindValue('city', $city);
-        $statement->bindValue('country', $country);
-        $statement->bindValue('school_id', $school_id);
+        $statement->bindValue(':center', $center);
+        $statement->bindValue(':address', $address);
+        $statement->bindValue(':email', $email);
+        $statement->bindValue(':phone', $phone);
+        $statement->bindValue(':city', $city);
+        $statement->bindValue(':country', $country);
+        $statement->bindValue(':school_id', $school_id);
         $statement->execute();
     } catch (PDOException $e) {
         echo 'Error: ' . $e->getMessage();
@@ -164,13 +164,13 @@ function editCenter($idCenter, $center, $address, $email, $phone, $city, $countr
               WHERE id=:idCenter';
     try {
         $statement = $db->prepare($query);
-        $statement->bindValue('idCenter', $idCenter);
-        $statement->bindValue('center', $center);
-        $statement->bindValue('address', $address);
-        $statement->bindValue('email', $email);
-        $statement->bindValue('phone', $phone);
-        $statement->bindValue('city', $city);
-        $statement->bindValue('country', $country);
+        $statement->bindValue(':idCenter', $idCenter);
+        $statement->bindValue(':center', $center);
+        $statement->bindValue(':address', $address);
+        $statement->bindValue(':email', $email);
+        $statement->bindValue(':phone', $phone);
+        $statement->bindValue(':city', $city);
+        $statement->bindValue(':country', $country);
         $statement->execute();
     } catch (PDOException $e) {
         echo 'Error: ' . $e->getMessage();
@@ -186,7 +186,7 @@ function getPrograms($idCenter) {
               WHERE center_id = :idCenter';
     try {
         $statement = $db->prepare($query);
-        $statement->bindValue('idCenter', $idCenter);
+        $statement->bindValue(':idCenter', $idCenter);
         $statement->execute();
         $result = $statement->fetchAll();
         $statement->closeCursor();

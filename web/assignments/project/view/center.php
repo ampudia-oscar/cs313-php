@@ -1,9 +1,14 @@
 <?php
 session_start();
-//require ('../model/dbconnect.php');
+
+if (!isset($_SESSION['valid_user'])) {
+    $action = 'login';
+    header('Location:../index.php');
+    exit;
+}
+
 require ('../model/database.php');
 require ('../model/functions.php');
-
 
 if (isset($_GET['idSchool'])) {
     $idSchool = $_GET['idSchool'];
@@ -11,6 +16,7 @@ if (isset($_GET['idSchool'])) {
 
 $centers = getCenters($idSchool);
 $school = getSchool($idSchool);
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -24,6 +30,11 @@ $school = getSchool($idSchool);
             <div class="container-fluid">
                 <img class="" src="" title="">
                 <h1 class="pb-3"><?php echo $school['school'] ?> <a href="../index.php"><button class="btn btn-outline-danger">Back</button></a></h1>
+                <p><img src="../images/icon-email.png"> <a href="mailto:<?php echo $school['email'] ?>"><?php echo $school['email'] ?></a><br>
+                    <img src="../images/icon-web.png"> <a href="http://<?php echo $school['website'] ?>" target="_blank"><?php echo $school['website'] ?></a></p>
+                <div class="row float-right mr-2">
+                    <a href="addCenter.php?idSchool=<?php echo $idSchool ?>"><button class="btn btn-primary" type="button" id="addCenter" name="addCenter">Add Center</button></a>
+                </div>
                 <h2>Select a Center</h2>
                 <?php
                 if ($message != "") {
@@ -56,13 +67,6 @@ $school = getSchool($idSchool);
                 </table>
             </div>
         </main>
-        <hr>
-        <div class="container-fluid">
-            <a href="addCenter.php?idSchool=<?php echo $idSchool ?>"><button class="btn btn-success" type="button" id="addCenter" name="addCenter">Add Center</button></a>
-        </div>
-        <pre class="container-fluid">
-            <?php echo $info ?>
-        </pre>
         <?php include "../modules/footer.php" ?>
     </body>
 </html>

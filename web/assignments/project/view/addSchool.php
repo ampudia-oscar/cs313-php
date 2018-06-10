@@ -3,7 +3,10 @@ session_start();
 
 if (!isset($_SESSION['valid_user'])) {
     $action = 'login';
+    header('Location:../index.php');
+    exit;
 }
+
 ?>
 <!doctype html>
 <html lang="en">

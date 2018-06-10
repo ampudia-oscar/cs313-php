@@ -3,7 +3,10 @@ session_start();
 
 if (!isset($_SESSION['valid_user'])) {
     $action = 'login';
+    header('Location:../index.php');
+    exit;
 }
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -16,7 +19,10 @@ if (!isset($_SESSION['valid_user'])) {
         <main>
             <div class="container-fluid">
                 <img class="" src="" title="">
-                <h1 class="pb-3">Welcome to the App</h1>
+                <h1 class="pb-3">Welcome <?php echo $_SESSION['username'] ?></h1>
+                <div class="row float-right mr-2">
+                    <a href="view/addSchool.php"><button class="btn btn-primary" type="button" id="addSchool" name="addSchool">Add School</button></a>
+                </div>
                 <h2>Select a School</h2>
                 <?php
                 if ($message != "") {
@@ -48,13 +54,6 @@ if (!isset($_SESSION['valid_user'])) {
                 </table>
             </div>
         </main>
-        <hr>
-        <div class="container-fluid">
-            <a href="view/addSchool.php"><button class="btn btn-success" type="button" id="addSchool" name="addSchool">Add School</button></a>
-        </div>
-        <pre class="container-fluid">
-            <?php echo $info ?>
-        </pre>
         <?php include "modules/footer.php" ?>
     </body>
 </html>
